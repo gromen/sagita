@@ -1,9 +1,28 @@
+@charset 'UTF-8';
+//  Foundation
+// @import 'vendor/foundation/foundation';
+@import 'foundation';
+// @import 'vendor/foundation/settings/settings';
+// @import 'base/base';
 @import 'variables';
-@import 'foundation-sites/scss/foundation';
-@import 'foundation-sites/scss/settings/settings';
 
+// // Includes components
+// @include foundation-flex-classes;
+// @include foundation-flex-grid;
+// @include foundation-forms;
+// @include foundation-button;
+// @include foundation-button-group;
+// @include foundation-visibility-classes;
+// @include foundation-float-classes;
+// @include foundation-flex-video;
+// @include foundation-media-object;
+// @include foundation-table;
+// @include foundation-breadcrumbs;
+// @include foundation-pagination;
 
-
+ul,ol {
+  margin-left: 0;
+}
 .jumbo{
   background-image: url(../images/sec1.jpg);
   background-size: 100%;
@@ -54,6 +73,7 @@
 }
 
 .top-bar-section {
+  padding-top: 0;
   ul li {
     &:hover {
       background: $primary-red;
@@ -73,7 +93,7 @@
 }
 
 section{
-    padding-bottom: 50px;
+    padding-top: 65px;
 }
 
 #contact li>ul>li{
@@ -208,4 +228,24 @@ h3,
 h2,
 a {
   color: $primary-red;
+}
+
+.margin-top-small {
+  margin-top: 10px !important;
+}
+
+.margin-top-medium {
+  margin-top: 40px !important;
+}
+
+.padding-up-down {
+  padding: 30px 0;
+}
+
+.vertical-center {
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+
+  }
 }
