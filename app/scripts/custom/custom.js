@@ -8,9 +8,6 @@ $(document).ready(function() {
         },
 
         scrollToTop: function() {
-            console.log(5);
-
-
             $(window).scroll(function() {
                 if ($(this).scrollTop() > 800) {
                     $('#top').fadeIn();
@@ -18,8 +15,6 @@ $(document).ready(function() {
                     $('#top').fadeOut();
                 }
             });
-
-
         },
 
         backToTop: function() {

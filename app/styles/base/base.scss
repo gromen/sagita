@@ -38,6 +38,19 @@ body {
   font-family: $roboto-regular;
 }
 
+main {
+  @include tablet {
+    padding-bottom: 40px;
+  }
+}
+
+p,
+ul {
+  @include desktop{
+    color: lighten($primary-gray, 25%);
+  }
+}
+
 ol, ul {
   list-style: none;
   margin-left: 0;
@@ -46,6 +59,11 @@ ol, ul {
 h2,
 .h2 {
   font-family: $roboto-bold;
+  margin-bottom: 15px;
+
+  @include tablet {
+    margin-bottom: 25px;
+  }
 }
 
 h1, h2, h3, h5, h6, a {
@@ -234,10 +252,6 @@ a {
 
 .margin-top-medium {
   margin-top: 40px !important;
-
-  &:last-child {
-    margin-bottom: 40px !important;
-  }
 }
 
 .padding-up-down {

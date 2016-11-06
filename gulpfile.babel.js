@@ -109,7 +109,10 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
+      './app/scripts/vendor/jquery.js',
+      './app/scripts/vendor/modernizr.js',
       './app/scripts/main.js',
+      './app/scripts/foundation.min.js',
       './app/scripts/custom/custom.js'
       // Other scripts
     ])
@@ -196,7 +199,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['html', 'scripts', 'images', 'copy'],
     'generate-service-worker',
     cb
   )
