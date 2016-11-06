@@ -1,89 +1,105 @@
 @charset 'UTF-8';
+
 //  Foundation
-// @import 'vendor/foundation/foundation';
 @import 'foundation';
-// @import 'vendor/foundation/settings/settings';
-// @import 'base/base';
-@import 'variables';
+@import 'base/base';
+@import 'mixins';
 
-// // Includes components
-// @include foundation-flex-classes;
-// @include foundation-flex-grid;
-// @include foundation-forms;
-// @include foundation-button;
-// @include foundation-button-group;
-// @include foundation-visibility-classes;
-// @include foundation-float-classes;
-// @include foundation-flex-video;
-// @include foundation-media-object;
-// @include foundation-table;
-// @include foundation-breadcrumbs;
-// @include foundation-pagination;
+// Scroll to top btn
+#top {
+  display: none;
+  width: 50px;
+  height: 50px;
+  background: rgba($primary-red, 0.7);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
 
-ul,ol {
-  margin-left: 0;
+  @include tablet {
+    bottom: 40px;
+    right: 40px;
+
+  }
+  span {
+    color: rgba($primary-gray, 0.5);
+    position: absolute;
+    font-size: 30px;
+    line-height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
 }
+
 .jumbo{
   background-image: url(../images/sec1.jpg);
   background-size: 100%;
   background-color: rgba(0, 0, 0, .5);
-  background-attachment: fixed;
+  background-attachment: inherit;
   padding: 175px 0;
-  margin-bottom: 30px;
   background-repeat: no-repeat;
   position: relative;
 
+  @include tablet {
+    background-attachment: fixed;
+  }
 }
 
 .jumbo h1{
-    color: #fff;
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 4em;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 4em;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .contain-to-grid{
     background: rgba($primary-gray, .8);
 }
+
 .top-bar{
-    background: none;
+  background: none;
+  height: 60px;
+  line-height: 60px;
+
+  .title-area {
+    height: 65px;
+  }
+
+  &-section {
+    padding-top: 0;
+
+    .nav {
+
+      li:not(.has-form) {
+        a:not(.button) {
+          @include desktop {
+            line-height: 65px;
+          }
+        }
+      }
+    }
+  }
+
 }
+
 .top-bar .name h1 a {
     color: #ea421e;
 }
 
-.top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button){
+.top-bar-section ul li,
+.top-bar-section li:not(.has-form) a:not(.button){
     background: none;
-
 }
-
-// .top-bar-section li:not(.has-form) a:hover:not(.button){
-//     background: none;
-//     text-decoration: underline;
-//     color: #1a1a1a;
-
-// }
 
 .top-bar-section ul li > a{
-    color: $primary-red;
-    font-weight: bold;
-    text-transform: uppercase;
+  color: $primary-red;
+  font-weight: bold;
+  text-transform: uppercase;
 
-}
-
-.top-bar-section {
-  padding-top: 0;
-  ul li {
-    &:hover {
-      background: $primary-red;
-
-      a {
-      color: #fff;
-
-      }
-    }
-
+  &:hover {
+    background: $primary-red;
   }
 }
 
@@ -93,7 +109,9 @@ ul,ol {
 }
 
 section{
+  @include tablet {
     padding-top: 65px;
+  }
 }
 
 #contact li>ul>li{
@@ -151,19 +169,15 @@ ul, ol, dl {
     font-size: 1.5em !important;
 }
 
-button, .button{
+button,
+.button {
     background-color: #ea421e;
     border-color: #ea421e;
-}
-button:hover, .button:hover{
-    background-color: rgba(234, 66, 30, 0.5);
-    border-color: #ea421e;
-}
-h1, h2, h3, h5, h6, a {
-    color: #ea421e;
-}
-a:hover{
-    color: #000;
+
+    &:hover {
+      background-color: rgba(234, 66, 30, 0.5);
+      border-color: #ea421e;
+    }
 }
 
 .top-bar .toggle-topbar.menu-icon a span:after {
@@ -196,56 +210,20 @@ a:hover{
 }
 
 header {
-
   .logo {
     width: 114px;
     height: 50px;
   }
 }
 
-.top-bar-section li:not(.has-form) a:not(.button) {
-  line-height: 65px;
-}
+.top-bar.expanded {
 
-ul {
-  -webkit-padding-start: 0px;
-}
-
-footer {
-  background-color: $primary-gray;
-  color: $primary-red;
-
-  ul {
-    color: #fff;
-  }
-
-  .copy {
-    background-color: lighten($primary-gray, 5%);
+  .nav {
+    a {
+      @include smartphone {
+        line-height: 30px !important;
+      }
+    }
   }
 }
-h3,
-.h3,
-h2,
-a {
-  color: $primary-red;
-}
 
-.margin-top-small {
-  margin-top: 10px !important;
-}
-
-.margin-top-medium {
-  margin-top: 40px !important;
-}
-
-.padding-up-down {
-  padding: 30px 0;
-}
-
-.vertical-center {
-  @media (min-width: 768px) {
-    display: flex;
-    align-items: center;
-
-  }
-}

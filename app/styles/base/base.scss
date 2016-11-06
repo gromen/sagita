@@ -1,4 +1,5 @@
-
+@import 'variables';
+@import 'fonts';
 
 /* BASE
 --------------------------------------------------------------------------
@@ -23,8 +24,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -36,11 +35,25 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  font-family: $roboto-regular;
 }
 
 ol, ul {
   list-style: none;
   margin-left: 0;
+}
+
+h2,
+.h2 {
+  font-family: $roboto-bold;
+}
+
+h1, h2, h3, h5, h6, a {
+  color: $primary-red;
+
+  a:hover{
+      color: #000;
+  }
 }
 
 blockquote, q {
@@ -177,10 +190,6 @@ abbr[data-original-title] {
   margin-bottom: 30px;
 }
 
-.margin-top-small {
-  margin-top: 10px;
-}
-
 .margin-top-large {
   margin-top: 40px;
 }
@@ -193,5 +202,52 @@ abbr[data-original-title] {
 
   &:hover {
     transform: scale(1.1);
+  }
+}
+
+ul {
+  -webkit-padding-start: 0px;
+}
+
+footer {
+  background-color: $primary-gray;
+  color: $primary-red;
+
+  ul {
+    color: #fff;
+  }
+
+  .copy {
+    background-color: lighten($primary-gray, 5%);
+  }
+}
+h3,
+.h3,
+h2,
+a {
+  color: $primary-red;
+}
+
+.margin-top-small {
+  margin-top: 10px !important;
+}
+
+.margin-top-medium {
+  margin-top: 40px !important;
+
+  &:last-child {
+    margin-bottom: 40px !important;
+  }
+}
+
+.padding-up-down {
+  padding: 30px 0;
+}
+
+.vertical-center {
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+
   }
 }
