@@ -34,7 +34,7 @@
 }
 
 .jumbo{
-  background-image: url(../images/sec1.jpg);
+  background-image: url(../images/glowne.jpg);
   background-size: 100%;
   background-color: rgba(0, 0, 0, .5);
   background-attachment: inherit;
@@ -106,7 +106,7 @@
           }
 
           @include desktop {
-            line-height: 65px;
+            line-height: 84px;
           }
         }
       }
@@ -116,7 +116,16 @@
 
 .top-bar .name {
   h1 {
-    line-height: 60px;
+    line-height: 50px;
+
+    @include tablet {
+      line-height: 75px;
+    }
+
+    @include tablet-only-horizontal {
+      line-height: 50px;
+    }
+
     a {
         color: #ea421e;
     }
@@ -129,15 +138,29 @@
     background: none;
 }
 
-.top-bar-section ul li > a{
-  color: $primary-red;
-  font-weight: bold;
-  text-transform: uppercase;
+.top-bar-section ul li {
+  &.social {
+    a {
+      font-size: 38px;
+      padding: 0 15px;
+      display: inline-block;
 
-  &:hover {
-    background: $primary-red;
+      &:hover {
+        background-color: none;
+      }
+    }
   }
-}
+
+  & > a{
+    color: $primary-red;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+      background: $primary-red;
+    }
+  }
+} 
 
 .active{
     text-decoration: underline;
@@ -180,7 +203,7 @@ section{
   }
 
   @include tablet {
-    padding-top: 65px;
+    padding-top: 80px;
   }
 }
 
@@ -268,7 +291,6 @@ button,
 
     }
     .jumbo h1{
-        color: #fff;
         text-align: center;
         margin-bottom: 15px;
         font-size: 2em;
