@@ -5,6 +5,7 @@ $(document).ready(function() {
         init: function() {
            this.scrollToTop();
            this.backToTop();
+           this.menuLinkSpy();
         },
 
         scrollToTop: function() {
@@ -23,10 +24,25 @@ $(document).ready(function() {
             $btn.on('click', function() {
                 $('html, body').animate({scrollTop:0}, 800);
                 return false;
-            })
+            });
+        },
+
+        menuLinkSpy: function () {  
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+
         }
-    }
-        app.init();
 
-
+    };
+    app.init();
 });
